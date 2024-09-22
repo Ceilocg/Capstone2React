@@ -1,4 +1,3 @@
-// src/components/dashboard/dashboard.tsx
 import React, { useState } from 'react';
 import Notifications from './Notifications';
 import UserManagement from './UserManagement';
@@ -13,19 +12,18 @@ interface DashboardProps {
 
 const Dashboard: React.FC<DashboardProps> = ({ userEmail, onLogout }) => {
   const [activeComponent, setActiveComponent] = useState<string>('dashboard');
-  const { hasPermission } = useUserContext();  // Use permissions from context
 
-  // Render components based on activeComponent and permissions
+  // Render components based on activeComponent
   const renderComponent = () => {
     switch (activeComponent) {
       case 'userManagement':
-        return hasPermission(Permissions.AddUser) ? <UserManagement /> : <p>Access Denied</p>;
+        return <UserManagement />;
       case 'formTemplates':
-        return hasPermission(Permissions.ViewFormTemplates) ? <FormTemplates /> : <p>Access Denied</p>;
+        return <FormTemplates />;
       case 'reportGeneration':
         return <ReportGeneration />;
       case 'dataManagement':
-        return hasPermission(Permissions.ManageData) ? <DataManagement /> : <p>Access Denied</p>;
+        return <DataManagement />;
       default:
         return <h2>Dashboard Home</h2>;
     }
@@ -37,7 +35,7 @@ const Dashboard: React.FC<DashboardProps> = ({ userEmail, onLogout }) => {
       <nav className="main-header navbar navbar-expand navbar-white navbar-light">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" data-widget="pushmenu" href="#" role="button">
+            <a className="nav-link" data-widget="pushmenu" href="#">
               <i className="fas fa-bars"></i>
             </a>
           </li>
@@ -72,43 +70,37 @@ const Dashboard: React.FC<DashboardProps> = ({ userEmail, onLogout }) => {
           </div>
 
           <nav className="mt-2">
-            <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" data-accordion="false">
               <li className="nav-item">
                 <a href="#" className="nav-link" onClick={() => setActiveComponent('dashboard')}>
                   <i className="nav-icon fas fa-tachometer-alt"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-              {hasPermission(Permissions.AddUser) && (
-                <li className="nav-item">
-                  <a href="#" className="nav-link" onClick={() => setActiveComponent('userManagement')}>
-                    <i className="nav-icon fas fa-users"></i>
-                    <p>User Management</p>
-                  </a>
-                </li>
-              )}
-              {hasPermission(Permissions.ViewFormTemplates) && (
-                <li className="nav-item">
-                  <a href="#" className="nav-link" onClick={() => setActiveComponent('formTemplates')}>
-                    <i className="nav-icon fas fa-edit"></i>
-                    <p>Form Templates</p>
-                  </a>
-                </li>
-              )}
+              <li className="nav-item">
+                <a href="#" className="nav-link" onClick={() => setActiveComponent('userManagement')}>
+                  <i className="nav-icon fas fa-users"></i>
+                  <p>User Management</p>
+                </a>
+              </li>
+              <li className="nav-item">
+                <a href="#" className="nav-link" onClick={() => setActiveComponent('formTemplates')}>
+                  <i className="nav-icon fas fa-edit"></i>
+                  <p>Form Templates</p>
+                </a>
+              </li>
               <li className="nav-item">
                 <a href="#" className="nav-link" onClick={() => setActiveComponent('reportGeneration')}>
                   <i className="nav-icon fas fa-file-alt"></i>
                   <p>Report Generation</p>
                 </a>
               </li>
-              {hasPermission(Permissions.ManageData) && (
-                <li className="nav-item">
-                  <a href="#" className="nav-link" onClick={() => setActiveComponent('dataManagement')}>
-                    <i className="nav-icon fas fa-database"></i>
-                    <p>Data Management</p>
-                  </a>
-                </li>
-              )}
+              <li className="nav-item">
+                <a href="#" className="nav-link" onClick={() => setActiveComponent('dataManagement')}>
+                  <i className="nav-icon fas fa-database"></i>
+                  <p>Data Management</p>
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
