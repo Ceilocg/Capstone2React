@@ -1,0 +1,183 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #e04176;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container styles */
+.login-container, .request-form-container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Title styles */
+.login-title, .form-title {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form group and input styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+input.input-field, textarea.textarea-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input.input-field:focus, textarea.textarea-field:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button styles */
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Link styles */
+.forgot-password-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.forgot-password-link:hover, .student-access-button:hover {
+  text-decoration: underline;
+}
+
+/* Separator line */
+.separator {
+  margin: 20px 0;
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
+}
+
+/* Error and success message styles */
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 1200px) {
+  .login-container, .request-form-container {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+
+  .login-title, .form-title {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  input.input-field, textarea.textarea-field {
+    font-size: 15px;
+    padding: 9px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container, .request-form-container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .login-title, .form-title {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  input.input-field, textarea.textarea-field {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* Adjust the logo and title for smaller screens */
+  .logo-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow wrapping if the container gets too narrow */
+  }
+
+  .school-logo {
+    width: 80px; /* Adjusted size for smaller screens */
+    margin-bottom: 10px;
+  }
+
+  .login-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container, .request-form-container {
+    padding: 15px;
+  }
+
+  .login-title, .form-title {
+    font-size: 18px;
+  }
+
+  input.input-field, textarea.textarea-field {
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .school-logo {
+    width: 60px; /* Smaller logo size for very small screens */
+  }
+}
